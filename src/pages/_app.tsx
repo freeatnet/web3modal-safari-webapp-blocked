@@ -39,7 +39,18 @@ const metadata = {
 
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
-createWeb3Modal({ wagmiConfig, projectId, chains });
+createWeb3Modal({
+  wagmiConfig,
+  projectId,
+  chains,
+  customWallets: [
+    {
+      id: "webapp-wallet",
+      name: "Webapp Wallet",
+      webapp_link: "https://example.org/",
+    },
+  ],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
 	const [ready, setReady] = useState(false);
